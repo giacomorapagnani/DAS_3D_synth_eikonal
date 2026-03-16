@@ -452,7 +452,7 @@ if __name__ == "__main__":
     #synth_class.generate_synthetics(noise_type='gaussian', file_prefix='', plot_fig=False, save_fig=False, save_mseed=False, save_npy=True)
 
     # synthetic seismogram of one event
-    ev_number=21         # CHANGE
+    ev_number=34         # CHANGE
     seis = synth_class.convolution(synth_class.events[ev_number],noise_type='none')
 
     synth_class.plot_seismogram(seis,synth_class.events[ev_number], file_prefix='', plot_fig=True, save_fig=False)
@@ -460,4 +460,4 @@ if __name__ == "__main__":
     synth_class.save_seismogram(seismogram = seis,
                                 event = synth_class.events[ev_number],
                                 file_prefix='synth_0_',
-                                save_mseed=False,save_npy=False)
+                                save_mseed=True,save_npy=False)

@@ -4,3 +4,4 @@ PLOTS/*
 NLL/*
 .github/*
 .vscode/*DATA_DAS/*.mseed
+.vscode/*

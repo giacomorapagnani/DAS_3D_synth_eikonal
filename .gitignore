@@ -3,4 +3,4 @@ DATA_DAS/*
 PLOTS/*
 NLL/*
 .github/*
-.vscode/*
+.vscode/*DATA_DAS/*.mseed

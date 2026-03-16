@@ -1,0 +1,74 @@
+#!/bin/bash
+# =============================================================================
+# =============================================================================
+# Grid2Time control file statements
+# =============================================================================
+#
+
+
+# -----------------------------------------------------------------------------
+# input, output filename root
+# (GTFILES <input file root> <output file root> wave_type (P, S))
+#
+# 2D
+GTFILES  /Users/giaco/UNI/PhD_CODE/GIT/DAS_synthetic_eikonal/3D/NLL/FLEGREI/nll_grid/ /Users/giaco/UNI/PhD_CODE/GIT/DAS_synthetic_eikonal/3D/NLL/FLEGREI/nll_grid/time S
+
+# time grid modes
+# (GTMODE grid_mode, angle_mode)
+#    (char[])   grid_mode (GRID3D, GRID2D)
+#    (char[])   angle_mode (ANGLES_YES, ANGLES_NO)
+#
+GTMODE GRID3D ANGLES_YES
+#GTMODE GRID2D ANGLES_YES
+#GTMODE GRID3D ANGLES_NO
+
+# source description (multiple sources can be specified)
+# (GTSRCE  label  x_srce  y_srce   z_srce   elev)
+#
+#    (char[])   label
+#
+#    (char[])   loc type (XYZ, LATLON (+/-dec deg), LATLONDM (deg, dec min))
+#  XYZ---------------      LATLON/LATLONDM--------
+#  x_srce : km pos E   or  lat   : pos N
+#  y_srce : km pos N   or  long  : pos E
+#  z_srce : km pos DN  or  depth : pos DN
+#
+#    elev : km pos UP
+#
+
+GTSRCE CAAM LATLON 40.820065 14.142049 0. 0.170
+GTSRCE CBAC LATLON 40.810901 14.080570 0. 0.77
+GTSRCE CFMN LATLON 40.832942 14.090403 0. 0.92
+GTSRCE CMIS LATLON 40.778154 14.089047 0. 0.134
+GTSRCE CMSN LATLON 40.838200 14.181800 0. 0.20
+GTSRCE CMTS LATLON 40.831400 14.197200 0. 0.40
+GTSRCE CNIS LATLON 40.798170 14.163176 0. 0.50
+GTSRCE COLB LATLON 40.819016 14.144606 0. 0.56
+GTSRCE CPIS LATLON 40.829224 14.146981 0. 0.117
+GTSRCE CPOZ LATLON 40.821072 14.119110 0. 0.52
+GTSRCE CQUE LATLON 40.885355 14.155414 0. 0.109
+GTSRCE CSFT LATLON 40.829168 14.139635 0. 0.151
+GTSRCE CSOB LATLON 40.826469 14.143963 0. 0.223
+GTSRCE CSTH LATLON 40.829447 14.149329 0. 0.108
+
+
+# Podvin & Lecomte FD params
+# Podvin and Lemcomte, 1991, GJI, 105, 271-284.
+# (PLFD  hs_eps_init  message_flag)
+#    (float) hs_eps_init : fraction (typically 1.0E-3) defining the toler-
+#                          ated model inhomogeneity for exact initialization.
+#                          A tolerance larger than 0.01 will potentially
+#                          create errors larger than those involved by the
+#                          F.D. scheme without any exact initialization.
+#    (int)  message_flag : Message flag (0:silent,1:few messages,2:verbose)
+#                          A negative value inhibits "clever"
+#                          initialization.
+#
+GT_PLFD  1.0e-3  0
+
+#
+#
+# =============================================================================
+# END of Grid2Time control file statements
+# =============================================================================
+# =============================================================================

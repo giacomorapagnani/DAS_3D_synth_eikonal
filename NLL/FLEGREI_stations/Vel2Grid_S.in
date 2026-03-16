@@ -1,0 +1,66 @@
+#!/bin/bash
+# =============================================================================
+# =============================================================================
+# Vel2Grid control file statements
+# =============================================================================
+#
+#
+# -----------------------------------------------------------------------------
+# output filename root
+# (VGOUT <output file root>)
+# Layer 2DGrid
+VGOUT  /Users/giaco/UNI/PhD_CODE/GIT/DAS_synthetic_eikonal/3D/NLL/FLEGREI/nll_grid/ 
+
+# -----------------------------------------------------------------------------
+# wave type
+# (VGTYPE wave_type (P, S))
+VGTYPE S
+
+# -----------------------------------------------------------------------------
+# grid description
+# (GRID  num_grid_x  num_grid_y  num_grid_z
+#	orig_grid_x  orig_grid_y  orig_grid_z
+#	d_grid_x d_grid_y d_grid_z
+#       type
+#    (float) num_grid_x/y/z : number of nodes along x/y/z axis
+#    (float)    orig_grid_x : x location of grid origin (0,0,0) in km pos east
+#    (float)    orig_grid_y : y location of grid origin (0,0,0) in km pos north
+#    (float)    orig_grid_z : z location of grid origin (0,0,0) in km pos down
+#    (float)   d_grid_x/y/x : grid spacing along  x/y/z axis
+#    (char[])  type : (VELOCITY = km/s, VELOCITY_METERS = m/s,
+#		SLOWNESS = s/km,
+#		VEL2 = vel**2,
+#		SLOW2 = slow**2, SLOW_2_METERS = slow**2 ((s/m)**2),
+#		SLOW_LEN = slow*d_grid [s])
+#
+# Layer 3DGrid (NOTE: num_grid_x must be = 2 for 2D grids)
+VGGRID  151 151 61 0.0 0.0 -1.0  0.1 0.1 0.1  SLOW_LEN
+
+# -----------------------------------------------------------------------------
+# velocity model description
+#
+# RUHR REGION
+# model layers 
+#(LAYER depth, Vp_top, Vp_grad, Vs_top, Vs_grad, rho_top, rho_grad)
+
+LAYER    -1.0   2.15   0.0   1.20   0.0   2.15   0.0
+LAYER    0.00   2.15   0.0   1.20   0.0   2.15   0.0
+LAYER    0.70   2.52   0.0   1.40   0.0   2.26   0.0
+LAYER    1.05   2.80   0.0   1.55   0.0   2.34   0.0
+LAYER    1.40   3.12   0.0   1.73   0.0   2.41   0.0
+LAYER    1.75   3.45   0.0   1.92   0.0   2.44   0.0
+LAYER    2.10   3.85   0.0   2.14   0.0   2.47   0.0
+LAYER    2.45   4.28   0.0   2.38   0.0   2.50   0.0
+LAYER    2.80   4.68   0.0   2.60   0.0   2.53   0.0
+LAYER    3.15   4.99   0.0   2.77   0.0   2.56   0.0
+LAYER    3.50   5.45   0.0   3.03   0.0   2.60   0.0
+LAYER    4.50   6.09   0.0   3.38   0.0   2.75   0.0
+LAYER    6.00   6.40   0.0   3.56   0.0   2.83   0.0
+LAYER   23.00   6.70   0.0   3.87   0.0   2.90   0.0
+LAYER   37.00   8.05   0.0   4.47   0.0   3.58   0.0
+
+										
+# =============================================================================
+# =============================================================================
+# END of Vel2Grid control file statements
+# =============================================================================

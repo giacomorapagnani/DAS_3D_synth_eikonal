@@ -1,0 +1,11 @@
+*** use NonLinLoc *** 
+
+Vel2Grid ruhr_p.run
+
+Vel2Grid ruhr_s.run
+
+Grid2Time ruhr_p.run
+
+Grid2Time ruhr_s.run
+
+copy 'header.hdr' inside 'nll_grid' folder

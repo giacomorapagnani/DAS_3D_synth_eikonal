@@ -1,7 +1,6 @@
-3D/NLL/*
-3D/DATA/*
-3D/VEL_MOD/*
-3D/PLOTS/*
+DATA/*
+DATA_DAS/*
+PLOTS/*
+NLL/*
 .github/*
 .vscode/*
-3D/DATA_DAS/*

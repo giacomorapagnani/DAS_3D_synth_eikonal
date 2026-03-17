@@ -159,8 +159,8 @@ class ConvolutionalSynth:
         self.az_s,self.dip_s = self.interp_class.get_travel_time_or_angle(event, self.angle_nll_s, nll_matrix_type= 'Angle')
 
         dataP,dataS=self._gen_data_matrix()
-        dataP[self.ch_indices,tt_p_indices]= self.trace_amplitude(event,phase='P',exclude_directivity=False, exclude_radiation_pattern=False)
-        dataS[self.ch_indices,tt_s_indices]= self.trace_amplitude(event,phase='S',exclude_directivity=False, exclude_radiation_pattern=False)
+        dataP[self.ch_indices,tt_p_indices]= self.trace_amplitude(event,phase='P',exclude_directivity=True, exclude_radiation_pattern=False)
+        dataS[self.ch_indices,tt_s_indices]= self.trace_amplitude(event,phase='S',exclude_directivity=True, exclude_radiation_pattern=False)
 
         for i in range(self.ns_ch):
             seisP=np.convolve(self.ricker_w,dataP[i,:],mode='same')
@@ -241,7 +241,7 @@ class ConvolutionalSynth:
             next(f)  # skip header
             for line in f:
                 ntw_name, st_name, lat, lon, elev = line.split()
-                fiber_geometry.append([ntw_name, st_name, float(lat), float(lon), float(elev)])
+                fiber_geometry.append([str(ntw_name), str(st_name), float(lat), float(lon), float(elev)])
         # total number of channels
         self.ns_ch=len(fiber_geometry)
         # channel indices list
@@ -452,7 +452,7 @@ if __name__ == "__main__":
     #synth_class.generate_synthetics(noise_type='gaussian', file_prefix='', plot_fig=False, save_fig=False, save_mseed=False, save_npy=True)
 
     # synthetic seismogram of one event
-    ev_number=34         # CHANGE
+    ev_number=52         # CHANGE
     seis = synth_class.convolution(synth_class.events[ev_number],noise_type='none')
 
     synth_class.plot_seismogram(seis,synth_class.events[ev_number], file_prefix='', plot_fig=True, save_fig=False)
